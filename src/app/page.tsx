@@ -62,7 +62,7 @@ export default function Home() {
       <div className="lg:-translate-y-[430px] md:-translate-y-[290%] -translate-y-[150%] lg:w-[800px] lg:text-center">
         <h1 className='text-6xl'>We build <b>professional websites</b> for <b>non-profits</b>.</h1>        
 </div>
-<div className="space-x-6 flex w-full justify-center items-center pb-20 pt-8" data-aos="fade-up">
+<div className="space-x-6 flex w-full justify-center items-center pb-20 " data-aos="fade-up">
         <Image
               src="/iconsvg.svg"
               alt="redevs logo"
