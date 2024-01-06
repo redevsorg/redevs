@@ -56,7 +56,7 @@ export default function Home() {
   <feColorMatrix type="saturate" values="3" x="0%" y="0%" width="100%" height="100%" in="blend" result="colormatrix"></feColorMatrix>
 </filter></defs><rect width="100%" height="100%" fill="url(#ffflux-gradient)" filter="url(#ffflux-filter)"></rect></svg>
 </div>
-<div className='pt-40 md:pt-[60px] lg:pt-[80px] opacity-90 animate-pulse'>
+<div className='pt-[8rem] md:pt-[60px] lg:pt-[80px] opacity-90 animate-pulse'>
       <FiArrowDown size={40} />
       </div>
       <div className="lg:-translate-y-[430px] md:-translate-y-[290%] -translate-y-[150%] lg:w-[800px] lg:text-center">
