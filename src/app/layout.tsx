@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     
-    <html lang="en">
+    <html className="scroll-smooth" lang="en">
       <AOSInit />
       <body className={hanken.className}>{children}</body>
     </html>

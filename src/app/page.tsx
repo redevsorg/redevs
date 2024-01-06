@@ -3,6 +3,7 @@ import { FaInstagram, FaTwitter } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { HiOutlineMail } from "react-icons/hi";
 import { FiArrowDown } from "react-icons/fi";
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -56,13 +57,13 @@ export default function Home() {
   <feColorMatrix type="saturate" values="3" x="0%" y="0%" width="100%" height="100%" in="blend" result="colormatrix"></feColorMatrix>
 </filter></defs><rect width="100%" height="100%" fill="url(#ffflux-gradient)" filter="url(#ffflux-filter)"></rect></svg>
 </div>
-<div className='pt-[8rem] md:pt-[60px] lg:pt-[80px] opacity-90 animate-pulse'>
+<Link href="#about" scroll={true} className='pt-[8rem] md:pt-[60px] lg:pt-[80px] opacity-90 animate-pulse'>
       <FiArrowDown size={40} />
-      </div>
+      </Link>
       <div className="lg:-translate-y-[430px] md:-translate-y-[290%] -translate-y-[150%] lg:w-[800px] lg:text-center">
         <h1 className='text-6xl'>We build <b>professional websites</b> for <b>non-profits</b>.</h1>        
 </div>
-<div className="space-x-6 flex w-full justify-center items-center pb-20 " data-aos="fade-up">
+<div id="about" className="space-x-6 flex w-full justify-center items-center pb-20 " data-aos="fade-up">
         <Image
               src="/iconsvg.svg"
               alt="redevs logo"
@@ -74,6 +75,7 @@ export default function Home() {
           
           <p className='pb-3 font-semibold text-7xl'>redevs</p>
         </div>
+        <p className='pb-3 font-semibold text-7xl'>redevs</p>
     </main>
   )
 }
