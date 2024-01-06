@@ -49,7 +49,7 @@ export default function Home() {
       </div>
 <div className='lg:pt-[5rem] md:pt-[4rem] pt-[6rem]'></div>      
       <div className='aspect-square w-3/4 md:w-1/2 lg:w-[500px]'>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="100%" opacity="0.65"><defs><linearGradient gradientTransform="rotate(150, 0.5, 0.5)" x1="50%" y1="0%" x2="50%" y2="100%" id="ffflux-gradient"><stop stop-color="#F67FEA" stop-opacity="1" offset="0%"></stop><stop stop-color="#DEE047" stop-opacity="1" offset="100%"></stop></linearGradient><filter id="ffflux-filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="100%" opacity="0.65"><defs><linearGradient gradientTransform="rotate(150, 0.5, 0.5)" x1="50%" y1="0%" x2="50%" y2="100%" id="ffflux-gradient"><stop stopColor="#F67FEA" stopOpacity="1" offset="0%"></stop><stop stopColor="#DEE047" stopOpacity="1" offset="100%"></stop></linearGradient><filter id="ffflux-filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
   <feTurbulence type="fractalNoise" baseFrequency="0.003 0.003" numOctaves="1" seed="158" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence"></feTurbulence>
   <feGaussianBlur stdDeviation="0 0" x="0%" y="0%" width="100%" height="100%" in="turbulence" edgeMode="duplicate" result="blur"></feGaussianBlur>
   <feBlend mode="hard-light" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" in2="blur" result="blend"></feBlend>
@@ -60,9 +60,20 @@ export default function Home() {
       <FiArrowDown size={40} />
       </div>
       <div className="lg:-translate-y-[430px] md:-translate-y-[290%] -translate-y-[150%] lg:w-[800px] lg:text-center">
-        <h1 className='text-6xl'>We build <b>professional websites</b> for <b>non-profits</b>.</h1>
-        
-      </div>
+        <h1 className='text-6xl'>We build <b>professional websites</b> for <b>non-profits</b>.</h1>        
+</div>
+<div className="space-x-6 flex w-full justify-center items-center pb-20 pt-8" data-aos="fade-up">
+        <Image
+              src="/iconsvg.svg"
+              alt="redevs logo"
+              className=""
+              width={100}
+              height={24}
+              priority
+            />
+          
+          <p className='pb-3 font-semibold text-7xl'>redevs</p>
+        </div>
     </main>
   )
 }
