@@ -63,7 +63,6 @@ export default function Home() {
       <div className="lg:-translate-y-[430px] md:-translate-y-[290%] -translate-y-[150%] lg:w-[800px] lg:text-center">
         <h1 className='text-6xl'>We build <b>professional websites</b> for <b>non-profits</b>.</h1>        
 </div>
-<div className='-translate-y-[30%] md:-translate-y-[15%] lg:-translate-y-[0%] grid'>
 <div className=' p-0.5 rounded-full w-fit place-self-center bg-gradient-to-r from-yellow-500 to-pink-500 '>
             <h1 className='bg-black rounded-full p-6 font-semibold text-[1.2rem] lg:text-[1.5rem]  text-center'>Connect your non-profit with the world.</h1>
           </div>
@@ -83,7 +82,6 @@ export default function Home() {
             <h1 className='text-xl font-semibold'>Help more people.</h1>
             <h1 className='font-light text-default pt-2'>Helping people is the core purpose of all non-profits, including redevs. By partnering with us to spread your mission, we will help more people together and make the world a better place.</h1>
           </div>
-        </div>
         </div>
     </main>
   )
