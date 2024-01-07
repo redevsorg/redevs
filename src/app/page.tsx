@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-10">
       <div className="z-10 fixed max-w-5xl w-full items-center justify-between text-xl lg:flex">
-        <div className="fixed left-0 top-0 space-x-2 flex w-full justify-center border-b pb-6 pt-8 backdrop-blur-2xl border-neutral-800 bg-black/30 from-inherit lg:static lg:w-auto lg:border lg:rounded-full lg:p-4">
+        <div className="fixed left-0 top-0 space-x-2 flex w-full justify-center border-b pb-6 pt-8 backdrop-blur-2xl border-neutral-800 bg-black/50 from-inherit lg:static lg:w-auto lg:border lg:rounded-full lg:p-4">
         <Image
               src="/iconsvg.svg"
               alt="redevs logo"
@@ -21,7 +21,7 @@ export default function Home() {
           
           <p className='pb-1 font-semibold'>redevs</p>
         </div>
-        <div className="fixed bottom-0 text-base font-mono left-0 flex h-min p-3 w-full items-center px-5 border-neutral-800 bg-black lg:backdrop-blur-2xl lg:border-neutral-800 lg:border-b lg:border-r lg:border-l lg:rounded-full lg:border-full lg:bg-black/30 border-t lg:static lg:h-auto lg:w-auto">
+        <div className="fixed bottom-0 text-base font-mono left-0 flex h-min p-3 w-full items-center px-5 border-neutral-800 bg-black lg:backdrop-blur-2xl lg:border-neutral-800 lg:border-b lg:border-r lg:border-l lg:rounded-full lg:border-full lg:bg-black/50 border-t lg:static lg:h-auto lg:w-auto">
           <div className='grid grid-cols-2 w-full place-content-stretch lg:grid-cols-1'>
           <div className='grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-1'>
           <div className="group">
@@ -63,19 +63,28 @@ export default function Home() {
       <div className="lg:-translate-y-[430px] md:-translate-y-[290%] -translate-y-[150%] lg:w-[800px] lg:text-center">
         <h1 className='text-6xl'>We build <b>professional websites</b> for <b>non-profits</b>.</h1>        
 </div>
-<div id="about" className="space-x-6 flex w-full justify-center items-center pb-20 " data-aos="fade-up">
-        <Image
-              src="/iconsvg.svg"
-              alt="redevs logo"
-              className=""
-              width={100}
-              height={24}
-              priority
-            />
-          
-          <p className='pb-3 font-semibold text-7xl'>redevs</p>
+<div className='-translate-y-[30%] md:-translate-y-[15%] lg:-translate-y-[0%] grid'>
+<div className=' p-0.5 rounded-full w-fit place-self-center bg-gradient-to-r from-yellow-500 to-pink-500 '>
+            <h1 className='bg-black rounded-full p-6 font-semibold text-[1.2rem] lg:text-[1.5rem]  text-center'>Connect your non-profit with the world.</h1>
+          </div>
+      <div id="about" className="gap-5 pt-5 lg:px-20 grid grid-cols-1 lg:grid-cols-3 w-full justify-center items-center pb-20 " data-aos="fade-up">
+          <div className='border h-full border-[2px] p-6 rounded-lg border-neutral-800 hover:border-white hover:scale-[101%]'>
+            <p className='font-mono text-sm opacity-50'>01</p>
+            <h1 className='text-xl font-semibold'>A non-profit for non-profits.</h1>
+            <h1 className='font-light text-default pt-2'>Redevs is a non-profit that operates as a web development firm to help non-profits connect with the world and create greater good. Currently, we operate as a non for profit organization but we plan to register as an official NPO.</h1>
+          </div>
+          <div className='border h-full border-[2px] p-6 rounded-lg border-neutral-800 hover:border-white hover:scale-[101%]'>
+            <p className='font-mono text-sm opacity-50'>02</p>
+            <h1 className='text-xl font-semibold'>Spread your mission.</h1>
+            <h1 className='font-light text-default pt-2'>We help non-profits spread their mission by providing with them with a platform that connects them with the world. Websites allow for non-profits to reach wider audiences and impact the global scene.</h1>
+          </div>
+          <div className='border h-full border-[2px] p-6 rounded-lg border-neutral-800 hover:border-white hover:scale-[101%]'>
+            <p className='font-mono text-sm opacity-50'>03</p>
+            <h1 className='text-xl font-semibold'>Help more people.</h1>
+            <h1 className='font-light text-default pt-2'>Helping people is the core purpose of all non-profits, including redevs. By partnering with us to spread your mission, we will help more people together and make the world a better place.</h1>
+          </div>
         </div>
-        <p className='pb-3 font-semibold text-7xl'>redevs</p>
+        </div>
     </main>
   )
 }

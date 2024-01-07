@@ -14,6 +14,16 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
+    animation: {
+      typewriter: "typewriter 2s steps(11) forwards"
+    },
+    keyframes: {
+      typewriter: {
+        to: {
+          left: "100%"
+        }
+      }
+    }
   },
   plugins: [],
 }
