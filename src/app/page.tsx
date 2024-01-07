@@ -68,11 +68,11 @@ export default function Home() {
 <div className='grid gap-10 grid-cols-1 w-full lg:px-20 lg:grid-cols-2 pb-20' data-aos="fade-up">
   <div>
     <h1 className='text-4xl font-semibold pb-3'>All non-profit organizations have one goal: helping people.</h1>
-    <h1 className='text-3xl font-light '>We help them with it. We're <strong>redevs</strong>.</h1>
+    <h1 className='text-3xl font-light '>We help them with it. We&apos;'re <strong>redevs</strong>.</h1>
     <hr className='my-6 border rounded-full border-neutral-800'></hr>
     <div className='flex gap-3'>
-    <button className='flex items-center gap-2 text-lg border w-fit p-3 rounded-full border-neutral-800 hover:scale-105 '><FiArrowRight></FiArrowRight>Meet the team</button>
-    <button className='flex items-center gap-2 text-lg border w-fit p-3 rounded-full border-neutral-800 hover:scale-105 '><FiArrowRight></FiArrowRight>Get in touch</button>
+    <button className='flex items-center gap-2 text-lg border w-fit p-3 rounded-full border-neutral-800 hover:scale-105'><FiArrowRight></FiArrowRight>Meet the team</button>
+    <button className='flex items-center gap-2 text-lg border w-fit p-3 rounded-full border-neutral-800 hover:scale-105'><FiArrowRight></FiArrowRight>Get in touch</button>
     </div>
   </div>
   <div className='text-[1.1rem] font-light'>
