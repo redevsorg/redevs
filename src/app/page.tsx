@@ -63,10 +63,10 @@ export default function Home() {
       <div className="lg:-translate-y-[430px] md:-translate-y-[290%] -translate-y-[150%] lg:w-[800px] lg:text-center">
         <h1 className='text-6xl'>We build <b>professional websites</b> for <b>non-profits</b>.</h1>        
 </div>
-<div className=' p-0.5 rounded-full w-fit place-self-center bg-gradient-to-r from-yellow-500 to-pink-500 '>
+<div id="about" className=' p-0.5 rounded-full w-fit place-self-center bg-gradient-to-r from-yellow-500 to-pink-500 '>
             <h1 className='bg-black rounded-full p-6 font-semibold text-[1.2rem] lg:text-[1.5rem]  text-center'>Connect your non-profit with the world.</h1>
           </div>
-      <div id="about" className="gap-5 pt-5 lg:px-20 grid grid-cols-1 lg:grid-cols-3 w-full justify-center items-center pb-20 " data-aos="fade-up">
+      <div className="gap-5 pt-5 lg:px-20 grid grid-cols-1 lg:grid-cols-3 w-full justify-center items-center pb-20 " data-aos="fade-up">
           <div className='border h-full border-[2px] p-6 rounded-lg border-neutral-800 hover:border-white hover:scale-[101%]'>
             <p className='font-mono text-sm opacity-50'>01</p>
             <h1 className='text-xl font-semibold'>A non-profit for non-profits.</h1>
