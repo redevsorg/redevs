@@ -5,6 +5,9 @@ import { RiTwitterXFill } from "react-icons/ri";
 import { HiOutlineMail } from "react-icons/hi";
 import { FiArrowDown } from "react-icons/fi";
 import { FiArrowRight } from "react-icons/fi";
+import { IoMdGlobe } from "react-icons/io";
+import { TbDrone } from "react-icons/tb";
+import { CgAdd } from "react-icons/cg";
 import Link from 'next/link';
 import React from "react";
 
@@ -100,26 +103,26 @@ export default function Home() {
       <div className="gap-5 pt-5 lg:px-20 grid grid-cols-1 lg:grid-cols-3 w-full justify-center items-center pb-20 " data-aos="fade-up">
           <div className='border h-full border-[2px] p-6 rounded-lg border-neutral-800 hover:scale-[101%]'>
             <p className='font-mono text-sm opacity-50'>01</p>
-            <h1 className='text-xl font-semibold'>A non-profit for non-profits.</h1>
-            <h1 className='font-light text-default pt-2'>Redevs is a non-profit that operates as a web development firm to help non-profits connect with the world and create greater good. Currently, we operate as a non for profit organization but we plan to register as an official NPO.</h1>
+            <h1 className='text-xl font-semibold'>Web Development</h1>
+            <h1 className='font-light text-default pt-2'>We can help you build a professional and modern website to showcase your non-profit and spread your message, all free of charge. From simple static sites to larger scale platforms, we can help you with it all. </h1>
           </div>
           <div className='border h-full border-[2px] p-6 rounded-lg border-neutral-800 hover:scale-[101%]'>
             <p className='font-mono text-sm opacity-50'>02</p>
-            <h1 className='text-xl font-semibold'>Spread your mission.</h1>
-            <h1 className='font-light text-default pt-2'>We help non-profits spread their mission by providing with them with a platform that connects them with the world. Websites allow for non-profits to reach wider audiences and impact the global scene.</h1>
+            <h1 className='text-xl font-semibold'>Backend Management</h1>
+            <h1 className='font-light text-default pt-2'>Operating a larger platform can be tough, especially as a non-profit, but we are here to help. We can help you manage your backend and improve it to work with our frontend services, furthering your message.</h1>
           </div>
           <div className='border h-full border-[2px] p-6 rounded-lg border-neutral-800 hover:scale-[101%]'>
             <p className='font-mono text-sm opacity-50'>03</p>
-            <h1 className='text-xl font-semibold'>Help more people.</h1>
-            <h1 className='font-light text-default pt-2'>Helping people is the core purpose of all non-profits, including redevs. By partnering with us to spread your mission, we will help more people together and make the world a better place.</h1>
+            <h1 className='text-xl font-semibold'>User Services</h1>
+            <h1 className='font-light text-default pt-2'>We can help you build an interactive website to serve your users and even collect monetary donations for your non-profit. Growing your non-profit and helping more people has never been easier.</h1>
           </div>
         </div>
           {showModal ? (
         <>
           <div
-            data-aos='fade-up' className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+            data-aos='fade-up' className="justify-center top-0 items-center flex overflow-x-hidden overflow-y-scroll fixed inset-0 z-50 outline-none focus:outline-none"
           >
-            <div className="relative w-[80%] my-6">
+            <div className="relative w-[80%] translate-y-[10%] lg:translate-y-[0%] py-[10%]">
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-black outline outline-neutral-800 focus:outline-none">
                 {/*header*/}
@@ -137,29 +140,36 @@ export default function Home() {
                   </button>
                 </div>
                 {/*body*/}
-                <div className="relative p-6 grid gap-10 lg:grid-cols-2">
-                  <div className='grid gap-10 lg:grid-cols-2'>
-                    <div>
+                <div className="relative p-6 gap-10">
+                  <div className='grid place-items-center gap-4 lg:grid-cols-2'>
+                    <div className='grid place-items-center'>
                     <Image
               src="/sahith.JPG"
               alt="Sahith Panchumarthy"
-              className="rounded-full"
-              width={300}
-              height={300}
+              className="rounded-full self-center"
+              width={200}
+              height={200}
               priority
             />
+            <p className='text-center pt-1 text-[1.2rem]'>Sahith Panchumarthy</p>
+            <p className='text-center text-[1rem] opacity-50'>Co-Founder & President</p>
                     </div>
-                    <div><Image
+                    <div className='grid place-items-center'>
+                    <Image
               src="/rohit.jpeg"
               alt="Rohit Sandadi"
-              className="rounded-full"
-              width={300}
-              height={300}
+              className="rounded-full self-center"
+              width={200}
+              height={200}
               priority
-            /></div>
+            />
+            <p className='text-center pt-1 text-[1.2rem]'>Rohit Sandadi</p>
+            <p className='text-center text-[1rem] opacity-50'>Co-Founder & President</p>
+                    </div>
                   </div>
-                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-                    We are always looking for new devs.
+                  <hr className='my-6 border rounded-full border-neutral-800'></hr>
+                  <p className="my-4 text-blueGray-500 text-center text-lg leading-relaxed">
+                    We are always looking for new developers. If you are an aspiring web developer and would like to support our mission, feel free to contact us via our social media or contact form.
                   </p>
                 </div>
               </div>
@@ -168,6 +178,49 @@ export default function Home() {
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
         </>
       ) : null}
+      <div className='grid lg:grid-cols-3 lg:px-20 pb-40 gap-6' data-aos='fade-up'>
+      <div>
+        <h1 className='text-7xl font-bold'><p className="bg-gradient-to-r from-yellow-500 to-pink-500 inline-block text-transparent bg-clip-text">2+</p></h1>
+        <h1 className='text-3xl font-light'>Non-profit websites created</h1>
+      </div>
+      <div className='flex items-center gap-2 justify-self-center '>
+      <IoMdGlobe className='opacity-50' size={60}></IoMdGlobe>
+        <h1 className='text-5xl text-center self-center opacity-50 font-bold'>globify</h1>
+      </div>
+      <div className='flex items-center gap-2 justify-self-end w-fill'>
+      <TbDrone class='opacity-50' size={70}></TbDrone>
+        <h1 className='text-3xl text-center self-center opacity-50 font-bold'>Drone Education Foundation</h1>
+      </div>
+      <div className='invisible'></div>
+      <div className='invisible'></div>
+      <div className='-translate-y-[50px] lg:-translate-y-[0px] flex items-center gap-2 justify-self-center '>
+      <CgAdd className='opacity-50' size={60}></CgAdd>
+        <h1 className='text-3xl text-center self-center opacity-50 font-bold'>Your Non-Profit Here</h1>
+      </div>
+      </div>   
+      <form className="rounded-lg shadow-xl flex flex-col py-8 border border-2 border-neutral-800 lg:mx-20" data-aos="fade-up">
+      <h1 className="text-2xl font-semibold  text-center ">Contact Us</h1>
+      <h1 className="text-xl font-light opacity-50 text-center px-20">Want to work with us or would like to help us reach our mission? You can get in touch through the form below.</h1>
+      <hr className='my-6 border rounded-full border-neutral-800'></hr>
+      <div className='px-8 flex flex-col'>
+      <label htmlFor="fullname" className="text-white font-light mt-8 mb-2">Full name<span className="text-red-500 ">*</span></label>
+      <input type="text" name="fullname" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-500" />
+
+      <label htmlFor="email" className="text-white font-light mt-4 mb-2 ">E-mail<span className="text-red-500">*</span></label>
+      <input type="email" name="email" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-500" />
+
+      <label htmlFor="subject" className="text-white font-light mt-4 mb-2 ">Subject<span className="text-red-500">*</span></label>
+      <input type="text" name="subject" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-500" />
+
+      <label htmlFor="message" className="text-white font-light mt-4 mb-2 ">Message<span className="text-red-500">*</span></label>
+      <textarea name="message" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-500"></textarea>
+      <div className="flex flex-row items-center justify-start">
+        <button className=" mt-10 p-0.5 rounded-full w-fit place-self-center bg-gradient-to-r from-yellow-500 to-pink-500 flex flex-row items-center">
+          <p className='bg-black rounded-full px-6 py-2  font-semibold text-[1rem] lg:text-[1.2rem]  text-center'>Send</p>
+        </button>
+      </div>
+      </div>
+    </form>
         </div>
     </main>
   )
