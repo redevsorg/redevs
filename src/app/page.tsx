@@ -3,6 +3,7 @@ import { FaInstagram, FaTwitter } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { HiOutlineMail } from "react-icons/hi";
 import { FiArrowDown } from "react-icons/fi";
+import { FiArrowRight } from "react-icons/fi";
 import Link from 'next/link';
 
 export default function Home() {
@@ -25,14 +26,14 @@ export default function Home() {
           <div className='grid grid-cols-2 w-full place-content-stretch lg:grid-cols-1'>
           <div className='grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-1'>
           <div className="group">
-              <p className='group-hover:scale-105'>home</p>
+              <Link href='/' className='group-hover:scale-105'>home</Link>
             </div>
-            <div className="group opacity-50 hover:opacity-100">
+            <Link href='#about' className="group opacity-50 hover:opacity-100">
               <p className='group-hover:scale-105'>about</p>
-            </div>
-            <div className="group opacity-50 hover:opacity-100">
+            </Link>
+            <Link href='#contact' className="group opacity-50 hover:opacity-100">
               <p className='group-hover:scale-105'>contact</p>
-            </div>
+            </Link>
           </div>
         </div>
         <div className='flex space-x-3 items-center lg:hidden'>
@@ -64,7 +65,21 @@ export default function Home() {
       <div className="lg:-translate-y-[430px] md:-translate-y-[290%] -translate-y-[150%] lg:w-[800px] lg:text-center">
         <h1 className='text-6xl'>We build <b>professional websites</b> for <b>non-profits</b>.</h1>        
 </div>
-<div className=' p-0.5 rounded-full w-fit place-self-center bg-gradient-to-r from-yellow-500 to-pink-500 '>
+<div className='grid gap-10 grid-cols-1 w-full lg:px-20 lg:grid-cols-2 pb-20' data-aos="fade-up">
+  <div>
+    <h1 className='text-4xl font-semibold pb-3'>All non-profit organizations have one goal: helping people.</h1>
+    <h1 className='text-3xl font-light '>We help them with it. We're <strong>redevs</strong>.</h1>
+    <hr className='my-6 border rounded-full border-neutral-800'></hr>
+    <div className='flex gap-3'>
+    <button className='flex items-center gap-2 text-lg border w-fit p-3 rounded-full border-neutral-800 hover:scale-105 '><FiArrowRight></FiArrowRight>Meet the team</button>
+    <button className='flex items-center gap-2 text-lg border w-fit p-3 rounded-full border-neutral-800 hover:scale-105 '><FiArrowRight></FiArrowRight>Get in touch</button>
+    </div>
+  </div>
+  <div className='text-[1.1rem] font-light'>
+    Redevs helps other non-profits connect to the world by offering a variety of free web development services. Founded by two high school students in 2023, we recruit a team of aspiring web developers to help our mission of helping other non-profits. We work with non-profits of all types to create both static and interactive websites to provide platforms for growth.
+  </div>
+</div>
+<div className=' p-0.5 rounded-full w-fit place-self-center bg-gradient-to-r from-yellow-500 to-pink-500' data-aos="fade-up">
             <h1 className='bg-black rounded-full p-6 font-semibold text-[1.2rem] lg:text-[1.5rem]  text-center'>Connect your non-profit with the world.</h1>
           </div>
       <div className="gap-5 pt-5 lg:px-20 grid grid-cols-1 lg:grid-cols-3 w-full justify-center items-center pb-20 " data-aos="fade-up">
