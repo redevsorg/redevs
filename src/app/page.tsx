@@ -63,21 +63,22 @@ export default function Home() {
       <div className="lg:-translate-y-[430px] md:-translate-y-[290%] -translate-y-[150%] lg:w-[800px] lg:text-center">
         <h1 className='text-6xl'>We build <b>professional websites</b> for <b>non-profits</b>.</h1>        
 </div>
-<div id="about" className=' p-0.5 rounded-full w-fit place-self-center bg-gradient-to-r from-yellow-500 to-pink-500 '>
+<div id="about"></div>
+<div className=' p-0.5 rounded-full w-fit place-self-center bg-gradient-to-r from-yellow-500 to-pink-500 '>
             <h1 className='bg-black rounded-full p-6 font-semibold text-[1.2rem] lg:text-[1.5rem]  text-center'>Connect your non-profit with the world.</h1>
           </div>
       <div className="gap-5 pt-5 lg:px-20 grid grid-cols-1 lg:grid-cols-3 w-full justify-center items-center pb-20 " data-aos="fade-up">
-          <div className='border h-full border-[2px] p-6 rounded-lg border-neutral-800 hover:border-white hover:scale-[101%]'>
+          <div className='border h-full border-[2px] p-6 rounded-lg border-neutral-800 hover:scale-[101%]'>
             <p className='font-mono text-sm opacity-50'>01</p>
             <h1 className='text-xl font-semibold'>A non-profit for non-profits.</h1>
             <h1 className='font-light text-default pt-2'>Redevs is a non-profit that operates as a web development firm to help non-profits connect with the world and create greater good. Currently, we operate as a non for profit organization but we plan to register as an official NPO.</h1>
           </div>
-          <div className='border h-full border-[2px] p-6 rounded-lg border-neutral-800 hover:border-white hover:scale-[101%]'>
+          <div className='border h-full border-[2px] p-6 rounded-lg border-neutral-800 hover:scale-[101%]'>
             <p className='font-mono text-sm opacity-50'>02</p>
             <h1 className='text-xl font-semibold'>Spread your mission.</h1>
             <h1 className='font-light text-default pt-2'>We help non-profits spread their mission by providing with them with a platform that connects them with the world. Websites allow for non-profits to reach wider audiences and impact the global scene.</h1>
           </div>
-          <div className='border h-full border-[2px] p-6 rounded-lg border-neutral-800 hover:border-white hover:scale-[101%]'>
+          <div className='border h-full border-[2px] p-6 rounded-lg border-neutral-800 hover:scale-[101%]'>
             <p className='font-mono text-sm opacity-50'>03</p>
             <h1 className='text-xl font-semibold'>Help more people.</h1>
             <h1 className='font-light text-default pt-2'>Helping people is the core purpose of all non-profits, including redevs. By partnering with us to spread your mission, we will help more people together and make the world a better place.</h1>
