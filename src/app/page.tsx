@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image'
 import { FaInstagram, FaTwitter } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
@@ -5,8 +6,10 @@ import { HiOutlineMail } from "react-icons/hi";
 import { FiArrowDown } from "react-icons/fi";
 import { FiArrowRight } from "react-icons/fi";
 import Link from 'next/link';
+import React from "react";
 
 export default function Home() {
+  const [showModal, setShowModal] = React.useState(false);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-10">
       <div className="z-10 fixed max-w-5xl w-full items-center justify-between text-xl lg:flex">
@@ -68,18 +71,30 @@ export default function Home() {
 <div className='grid gap-10 grid-cols-1 w-full lg:px-20 lg:grid-cols-2 pb-20' data-aos="fade-up">
   <div>
     <h1 className='text-4xl font-semibold pb-3'>All non-profit organizations have one goal: helping people.</h1>
-    <h1 className='text-3xl font-light '>We help them with it. We&apos;re <strong>redevs</strong>.</h1>
+    <h1 className='text-3xl font-light '>We help them with it. We&apos;re <p className="font-semibold bg-gradient-to-r from-yellow-500 to-pink-500 inline-block text-transparent bg-clip-text">redevs</p>.</h1>
     <hr className='my-6 border rounded-full border-neutral-800'></hr>
-    <div className='flex gap-3'>
-    <button className='flex items-center gap-2 text-lg border w-fit p-3 rounded-full border-neutral-800 hover:scale-105'><FiArrowRight></FiArrowRight>Meet the team</button>
+    <div className='grid rid-rows-1 grid-cols-2 lg:flex gap-3'>
+    <button className='flex items-center gap-2 text-lg border w-fit p-3 rounded-full border-neutral-800 hover:scale-105' onClick={() => setShowModal(true)}><FiArrowRight></FiArrowRight>Meet the team</button>
     <button className='flex items-center gap-2 text-lg border w-fit p-3 rounded-full border-neutral-800 hover:scale-105'><FiArrowRight></FiArrowRight>Get in touch</button>
+    <div className='flex items-center self-center gap-2 ml-auto invisible lg:visible'>
+          <div className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
+            <FaInstagram size={30}></FaInstagram>
+          </div>
+          <div className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
+            <RiTwitterXFill size={30}></RiTwitterXFill>
+          </div>
+          <div className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
+            <HiOutlineMail size={37}></HiOutlineMail>
+          </div>
+          </div>
     </div>
   </div>
   <div className='text-[1.1rem] font-light'>
     Redevs helps other non-profits connect to the world by offering a variety of free web development services. Founded by two high school students in 2023, we recruit a team of aspiring web developers to help our mission of helping other non-profits. We work with non-profits of all types to create both static and interactive websites to provide platforms for growth.
   </div>
 </div>
-<div className=' p-0.5 rounded-full w-fit place-self-center bg-gradient-to-r from-yellow-500 to-pink-500' data-aos="fade-up">
+<div className='grid'>
+<div className=' p-0.5 rounded-full  w-fit place-self-center bg-gradient-to-r from-yellow-500 to-pink-500' data-aos="fade-up">
             <h1 className='bg-black rounded-full p-6 font-semibold text-[1.2rem] lg:text-[1.5rem]  text-center'>Connect your non-profit with the world.</h1>
           </div>
       <div className="gap-5 pt-5 lg:px-20 grid grid-cols-1 lg:grid-cols-3 w-full justify-center items-center pb-20 " data-aos="fade-up">
@@ -98,6 +113,61 @@ export default function Home() {
             <h1 className='text-xl font-semibold'>Help more people.</h1>
             <h1 className='font-light text-default pt-2'>Helping people is the core purpose of all non-profits, including redevs. By partnering with us to spread your mission, we will help more people together and make the world a better place.</h1>
           </div>
+        </div>
+          {showModal ? (
+        <>
+          <div
+            data-aos='fade-up' className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+          >
+            <div className="relative w-[80%] my-6">
+              {/*content*/}
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-black outline outline-neutral-800 focus:outline-none">
+                {/*header*/}
+                <div className="flex items-start justify-between p-5 border-b-2 border-solid border-neutral-800 rounded-t">
+                  <h3 className="text-3xl font-semibold">
+                    Our Team
+                  </h3>
+                  <button
+                    className="p-1 ml-auto border-0 text-white float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                    onClick={() => setShowModal(false)}
+                  >
+                    <span className="text-xl text-white h-6 w-6 text-2xl block outline-none focus:outline-none">
+                      ×
+                    </span>
+                  </button>
+                </div>
+                {/*body*/}
+                <div className="relative p-6 grid gap-10 lg:grid-cols-2">
+                  <div className='grid gap-10 lg:grid-cols-2'>
+                    <div>
+                    <Image
+              src="/sahith.JPG"
+              alt="Sahith Panchumarthy"
+              className="rounded-full"
+              width={300}
+              height={300}
+              priority
+            />
+                    </div>
+                    <div><Image
+              src="/rohit.jpeg"
+              alt="Rohit Sandadi"
+              className="rounded-full"
+              width={300}
+              height={300}
+              priority
+            /></div>
+                  </div>
+                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                    We are always looking for new devs.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        </>
+      ) : null}
         </div>
     </main>
   )
