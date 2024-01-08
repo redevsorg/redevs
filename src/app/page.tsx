@@ -219,9 +219,9 @@ export default function Home() {
     
     </div>
         </div>
-        <div className='lg:invisible flex'>
-          <p>Terms</p>
-          <p>Privacy</p>
+        <div className='lg:invisible flex gap-5 font-mono text-center pt-20 bottom-0'>
+          <p className='opacity-50 hover:opacity-100'>Terms</p>
+          <p className='opacity-50 hover:opacity-100'>Privacy</p>
         </div>
         <div className="invisible lg:visible bottom-0 translate-y-6 text-base font-mono left-0 flex h-min pt-3 w-full items-center mt-20 px-5 border-neutral-800 bg-black border-t">
           <div className='grid grid-cols-2 w-full place-content-stretch'>
