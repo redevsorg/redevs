@@ -14,7 +14,7 @@ import React from "react";
 export default function Home() {
   const [showModal, setShowModal] = React.useState(false);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-10">
+    <main className="flex min-h-screen flex-col items-center justify-between py-10">
       <div className="z-10 fixed max-w-5xl w-full items-center justify-between text-xl lg:flex">
         <div className="fixed left-0 top-0 space-x-2 flex w-full justify-center border-b pb-6 pt-8 backdrop-blur-2xl border-neutral-800 bg-black/50 from-inherit lg:static lg:w-auto lg:border lg:rounded-full lg:p-4">
         <Image
@@ -178,7 +178,7 @@ export default function Home() {
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
         </>
       ) : null}
-      <div className='grid lg:grid-cols-3 lg:px-20 pb-40 gap-6' data-aos='fade-up'>
+      <div className='grid lg:grid-cols-3 lg:px-20 pb-20 gap-6' data-aos='fade-up'>
       <div>
         <h1 className='text-7xl font-bold'><p className="bg-gradient-to-r from-yellow-500 to-pink-500 inline-block text-transparent bg-clip-text">2+</p></h1>
         <h1 className='text-3xl font-light'>Non-profit websites created</h1>
@@ -187,33 +187,27 @@ export default function Home() {
       <IoMdGlobe className='opacity-50' size={60}></IoMdGlobe>
         <h1 className='text-5xl text-center self-center opacity-50 font-bold'>globify</h1>
       </div>
-      <div className='flex items-center gap-2 justify-self-end w-fill'>
-      <TbDrone class='opacity-50' size={70}></TbDrone>
-        <h1 className='text-3xl text-center self-center opacity-50 font-bold'>Drone Education Foundation</h1>
-      </div>
-      <div className='invisible'></div>
-      <div className='invisible'></div>
-      <div className='-translate-y-[50px] lg:-translate-y-[0px] flex items-center gap-2 justify-self-center '>
-      <CgAdd className='opacity-50' size={60}></CgAdd>
-        <h1 className='text-3xl text-center self-center opacity-50 font-bold'>Your Non-Profit Here</h1>
+      <div className='flex items-center gap-0 justify-self-end w-fill'>
+      <TbDrone className='opacity-50' size={70}></TbDrone>
+        <h1 className='text-3xl text-center self-center opacity-50 font-bold w-fill'>Drone Education Foundation</h1>
       </div>
       </div>   
       <form className="rounded-lg shadow-xl flex flex-col py-8 border border-2 border-neutral-800 lg:mx-20" data-aos="fade-up">
-      <h1 className="text-2xl font-semibold  text-center ">Contact Us</h1>
+      <h1 className="text-3xl font-semibold  text-center ">Contact Us</h1>
       <h1 className="text-xl font-light opacity-50 text-center px-20">Want to work with us or would like to help us reach our mission? You can get in touch through the form below.</h1>
-      <hr className='my-6 border rounded-full border-neutral-800'></hr>
+      <hr className='my-6 border border-neutral-800'></hr>
       <div className='px-8 flex flex-col'>
       <label htmlFor="fullname" className="text-white font-light mt-8 mb-2">Full name<span className="text-red-500 ">*</span></label>
-      <input type="text" name="fullname" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-500" />
+      <input type="text" name="fullname" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-300" />
 
       <label htmlFor="email" className="text-white font-light mt-4 mb-2 ">E-mail<span className="text-red-500">*</span></label>
-      <input type="email" name="email" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-500" />
+      <input type="email" name="email" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-300" />
 
       <label htmlFor="subject" className="text-white font-light mt-4 mb-2 ">Subject<span className="text-red-500">*</span></label>
-      <input type="text" name="subject" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-500" />
+      <input type="text" name="subject" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-300" />
 
       <label htmlFor="message" className="text-white font-light mt-4 mb-2 ">Message<span className="text-red-500">*</span></label>
-      <textarea name="message" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-500"></textarea>
+      <textarea name="message" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-300"></textarea>
       <div className="flex flex-row items-center justify-start">
         <button className=" mt-10 p-0.5 rounded-full w-fit place-self-center bg-gradient-to-r from-yellow-500 to-pink-500 flex flex-row items-center">
           <p className='bg-black rounded-full px-6 py-2  font-semibold text-[1rem] lg:text-[1.2rem]  text-center'>Send</p>
@@ -221,6 +215,40 @@ export default function Home() {
       </div>
       </div>
     </form>
+    <div>
+    <div className="bottom-0 translate-y-6 text-base font-mono left-0 flex h-min pt-3 w-full items-center mt-20 px-5 border-neutral-800 bg-black border-t">
+          <div className='grid grid-cols-2 w-full place-content-stretch'>
+          <div className='grid grid-rows-3 grid-cols-2'>
+          <div className="group">
+              <Link href='/' className=''>home</Link>
+            </div>
+            <Link href='#contact' className="group opacity-50 hover:opacity-100">
+              <p className=''>privacy</p>
+            </Link>
+            <Link href='#about' className="group opacity-50 hover:opacity-100">
+              <p className=''>about</p>
+            </Link>
+            <Link href='#contact' className="group opacity-50 hover:opacity-100">
+              <p className=''>terms</p>
+            </Link>
+            <Link href='#contact' className="group opacity-50 hover:opacity-100">
+              <p className=''>contact</p>
+            </Link>
+          </div>
+        </div>
+        <div className='flex space-x-3 items-center'>
+          <div className='opacity-50 hover:opacity-100 hover:scale-101'>
+            <FaInstagram size={25}></FaInstagram>
+          </div>
+          <div className='opacity-50 hover:opacity-100 hover:scale-105'>
+            <RiTwitterXFill size={25}></RiTwitterXFill>
+          </div>
+          <div className='opacity-50 hover:opacity-100 hover:scale-105'>
+            <HiOutlineMail size={32}></HiOutlineMail>
+          </div>
+        </div>
+        </div>
+    </div>
         </div>
     </main>
   )
