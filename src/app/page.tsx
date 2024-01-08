@@ -14,7 +14,7 @@ import React from "react";
 export default function Home() {
   const [showModal, setShowModal] = React.useState(false);
   return (
-    <main className="flex min-h-screen flex-col items-center px-20 justify-between py-10">
+    <main className="flex min-h-screen flex-col items-center px-5 lg:px-0 justify-between py-10">
       <div className="z-10 fixed max-w-5xl w-full items-center px-20 justify-between text-xl lg:flex">
         <div className="fixed left-0 top-0 space-x-2 flex w-full justify-center border-b pb-6 pt-8 backdrop-blur-2xl border-neutral-800 bg-black/50 from-inherit lg:static lg:w-auto lg:border lg:rounded-full lg:p-4">
         <Image
