@@ -15,7 +15,7 @@ export default function Home() {
   const [showModal, setShowModal] = React.useState(false);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between py-10">
-      <div className="z-10 fixed max-w-5xl w-full items-center justify-between text-xl lg:flex">
+      <div className="z-10 fixed max-w-5xl w-full items-center px-20 justify-between text-xl lg:flex">
         <div className="fixed left-0 top-0 space-x-2 flex w-full justify-center border-b pb-6 pt-8 backdrop-blur-2xl border-neutral-800 bg-black/50 from-inherit lg:static lg:w-auto lg:border lg:rounded-full lg:p-4">
         <Image
               src="/iconsvg.svg"
@@ -216,7 +216,14 @@ export default function Home() {
       </div>
     </form>
     <div>
-    <div className="bottom-0 translate-y-6 text-base font-mono left-0 flex h-min pt-3 w-full items-center mt-20 px-5 border-neutral-800 bg-black border-t">
+    
+    </div>
+        </div>
+        <div className='lg:invisible flex'>
+          <p>Terms</p>
+          <p>Privacy</p>
+        </div>
+        <div className="insvisible lg:visible bottom-0 translate-y-6 text-base font-mono left-0 flex h-min pt-3 w-full items-center mt-20 px-5 border-neutral-800 bg-black border-t">
           <div className='grid grid-cols-2 w-full place-content-stretch'>
           <div className='grid grid-rows-3 grid-cols-2'>
           <div className="group">
@@ -247,8 +254,6 @@ export default function Home() {
             <HiOutlineMail size={32}></HiOutlineMail>
           </div>
         </div>
-        </div>
-    </div>
         </div>
     </main>
   )
