@@ -1,20 +1,105 @@
 "use client"
 import Image from 'next/image'
-import { FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { HiOutlineMail } from "react-icons/hi";
 import { FiArrowDown } from "react-icons/fi";
 import { FiArrowRight } from "react-icons/fi";
 import { IoMdGlobe } from "react-icons/io";
 import { TbDrone } from "react-icons/tb";
-import { CgAdd } from "react-icons/cg";
 import Link from 'next/link';
-import React from "react";
+import React, { useState } from "react";
 
 export default function Home() {
   const [showModal, setShowModal] = React.useState(false);
+  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const [buttonText, setButtonText] = useState("Send");
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showFailureMessage, setShowFailureMessage] = useState(false);
+  const [errors, setErrors] = useState({});
+  const handleValidation = () => {
+    let tempErrors = {};
+    let isValid = true;
+
+    if (fullname.length <= 0) {
+      // @ts-ignore
+      tempErrors["fullname"] = true;
+      isValid = false;
+    }
+    if (email.length <= 0) {
+      // @ts-ignore
+      tempErrors["email"] = true;
+      isValid = false;
+    }
+    if (subject.length <= 0) {
+      // @ts-ignore
+      tempErrors["subject"] = true;
+      isValid = false;
+    }
+    if (message.length <= 0) {
+      // @ts-ignore
+      tempErrors["message"] = true;
+      isValid = false;
+    }
+    // @ts-ignore
+    setErrors({ ...tempErrors });
+    // @ts-ignore
+    console.log("errors", errors);
+    return isValid;
+  };
+  // @ts-ignore
+  const handleSubmit = async (e) => {
+    console.log(e);
+    e.preventDefault();
+    let isValidForm = handleValidation();
+    if (isValidForm) {
+      setButtonText("Sending");
+      const res = await fetch("/api/sendgrid", {
+        body: JSON.stringify({
+          email: email,
+          fullname: fullname,
+          subject: subject,
+          message: message,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+
+      const { error } = await res.json();
+      if (error) {
+        console.log(error);
+        setShowSuccessMessage(false);
+        setShowFailureMessage(true);
+        setButtonText("Send");
+
+        // Reset form fields
+        setFullname("");
+        setEmail("");
+        setMessage("");
+        setSubject("");
+        return;
+      }
+      setShowSuccessMessage(true);
+      setShowFailureMessage(false);
+      setButtonText("Send");
+      // Reset form fields
+      setFullname("");
+      setEmail("");
+      setMessage("");
+      setSubject("");
+    }
+    console.log(fullname, email, subject, message);
+  };
   return (
-    <main className="flex min-h-screen flex-col items-center px-10 lg:px-0 justify-between py-10">
+    <main className="flex min-h-screen bg-black flex-col items-center px-10 lg:px-0 justify-between py-10">
+      <script>
+        {}
+      </script>
       <div className="z-10 fixed max-w-5xl w-full items-center px-20 justify-between text-xl lg:flex">
         <div className="fixed left-0 top-0 space-x-2 flex w-full justify-center border-b pb-6 pt-8 backdrop-blur-2xl border-neutral-800 bg-black/50 from-inherit lg:static lg:w-auto lg:border lg:rounded-full lg:p-4">
         <Image
@@ -31,9 +116,9 @@ export default function Home() {
         <div className="fixed bottom-0 text-base font-mono left-0 flex h-min p-3 w-full items-center px-5 border-neutral-800 bg-black lg:backdrop-blur-2xl lg:border-neutral-800 lg:border-b lg:border-r lg:border-l lg:rounded-full lg:border-full lg:bg-black/50 border-t lg:static lg:h-auto lg:w-auto">
           <div className='grid grid-cols-2 w-full place-content-stretch lg:grid-cols-1'>
           <div className='grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-1'>
-          <div className="group">
-              <Link href='/' className='group-hover:scale-105'>home</Link>
-            </div>
+          <Link href='#home' className="group">
+              <p className='group-hover:scale-105'>home</p>
+            </Link>
             <Link href='#about' className="group opacity-50 hover:opacity-100">
               <p className='group-hover:scale-105'>about</p>
             </Link>
@@ -43,18 +128,19 @@ export default function Home() {
           </div>
         </div>
         <div className='flex space-x-3 items-center lg:hidden'>
-          <div className='opacity-50 hover:opacity-100 hover:scale-105'>
-            <FaInstagram size={25}></FaInstagram>
-          </div>
-          <div className='opacity-50 hover:opacity-100 hover:scale-105'>
-            <RiTwitterXFill size={25}></RiTwitterXFill>
-          </div>
-          <div className='opacity-50 hover:opacity-100 hover:scale-105'>
-            <HiOutlineMail size={32}></HiOutlineMail>
-          </div>
+          <Link href='https://www.instagram.com/re.devs/' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
+            <FaInstagram size={30}></FaInstagram>
+          </Link>
+          <Link href='https://twitter.com/redevs_org' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
+            <RiTwitterXFill size={30}></RiTwitterXFill>
+          </Link>
+          <Link href='mailto:redevsorg@gmail.com' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
+            <HiOutlineMail size={37}></HiOutlineMail>
+          </Link>
         </div>
         </div>
       </div>
+      <section id="home"></section>
 <div className='lg:pt-[5rem] md:pt-[4rem] pt-[6rem]'></div>      
       <div className='aspect-square w-3/4 md:w-1/2 lg:w-[500px]'>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="100%" opacity="0.65"><defs><linearGradient gradientTransform="rotate(150, 0.5, 0.5)" x1="50%" y1="0%" x2="50%" y2="100%" id="ffflux-gradient"><stop stopColor="#F67FEA" stopOpacity="1" offset="0%"></stop><stop stopColor="#DEE047" stopOpacity="1" offset="100%"></stop></linearGradient><filter id="ffflux-filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
@@ -71,6 +157,8 @@ export default function Home() {
       <div className="lg:-translate-y-[430px] md:-translate-y-[290%] -translate-y-[150%] lg:w-[800px] lg:text-center">
         <h1 className='text-6xl'>We build <b>professional websites</b> for <b>non-profits</b>.</h1>        
 </div>
+
+<section id="about">
 <div className='grid gap-10 grid-cols-1 w-full lg:px-20 lg:grid-cols-2 pb-20' data-aos="fade-up">
   <div>
     <h1 className='text-4xl font-semibold pb-3'>All non-profit organizations have one goal: helping people.</h1>
@@ -78,17 +166,17 @@ export default function Home() {
     <hr className='my-6 border rounded-full border-neutral-800'></hr>
     <div className='grid rid-rows-1 grid-cols-2 lg:flex gap-3'>
     <button className='flex items-center gap-2 text-lg border w-fit p-3 rounded-full border-neutral-800 hover:scale-105' onClick={() => setShowModal(true)}><FiArrowRight></FiArrowRight>Meet the team</button>
-    <button className='flex items-center gap-2 text-lg border w-fit p-3 rounded-full border-neutral-800 hover:scale-105'><FiArrowRight></FiArrowRight>Get in touch</button>
+    <Link href='#contact' className='flex items-center gap-2 text-lg border w-fit p-3 rounded-full border-neutral-800 hover:scale-105'><FiArrowRight></FiArrowRight>Get in touch</Link>
     <div className='flex items-center self-center gap-2 ml-auto invisible lg:visible'>
-          <div className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
+    <Link href='https://www.instagram.com/re.devs/' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
             <FaInstagram size={30}></FaInstagram>
-          </div>
-          <div className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
+          </Link>
+          <Link href='https://twitter.com/redevs_org' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
             <RiTwitterXFill size={30}></RiTwitterXFill>
-          </div>
-          <div className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
+          </Link>
+          <Link href='mailto:redevsorg@gmail.com' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
             <HiOutlineMail size={37}></HiOutlineMail>
-          </div>
+          </Link>
           </div>
     </div>
   </div>
@@ -96,6 +184,7 @@ export default function Home() {
     Redevs helps other non-profits connect to the world by offering a variety of free web development services. Founded by two high school students in 2023, we recruit a team of aspiring web developers to help our mission of helping other non-profits. We work with non-profits of all types to create both static and interactive websites to provide platforms for growth.
   </div>
 </div>
+
 <div className='grid'>
 <div className=' p-0.5 rounded-full  w-fit place-self-center bg-gradient-to-r from-yellow-500 to-pink-500' data-aos="fade-up">
             <h1 className='bg-black rounded-full p-6 font-semibold text-[1.2rem] lg:text-[1.5rem]  text-center'>Connect your non-profit with the world.</h1>
@@ -117,6 +206,7 @@ export default function Home() {
             <h1 className='font-light text-default pt-2'>We can help you build an interactive website to serve your users and even collect monetary donations for your non-profit. Growing your non-profit and helping more people has never been easier.</h1>
           </div>
         </div>
+        
           {showModal ? (
         <>
           <div
@@ -168,7 +258,7 @@ export default function Home() {
                     </div>
                   </div>
                   <hr className='my-6 border rounded-full border-neutral-800'></hr>
-                  <p className="my-4 text-blueGray-500 text-center text-lg leading-relaxed">
+                  <p className="my-4 text-white text-center text-lg leading-relaxed">
                     We are always looking for new developers. If you are an aspiring web developer and would like to support our mission, feel free to contact us via our social media or contact form.
                   </p>
                 </div>
@@ -178,7 +268,8 @@ export default function Home() {
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
         </>
       ) : null}
-      <div className='grid lg:grid-cols-3 lg:px-20 pb-20 gap-6' data-aos='fade-up'>
+      
+      <div className='grid lg:grid-cols-3 lg:px-20 gap-6' data-aos='fade-up'>
       <div>
         <h1 className='text-7xl font-bold'><p className="bg-gradient-to-r from-yellow-500 to-pink-500 inline-block text-transparent bg-clip-text">2+</p></h1>
         <h1 className='text-3xl font-light'>Non-profit websites created</h1>
@@ -191,68 +282,104 @@ export default function Home() {
       <TbDrone className='opacity-50' size={70}></TbDrone>
         <h1 className='text-3xl text-center self-center opacity-50 font-bold w-fill'>Drone Education Foundation</h1>
       </div>
-      </div>   
+      </div> 
+      </div>
+      </section>
+      <section className='pt-20' id='contact'>
       <form className="rounded-lg shadow-xl flex flex-col py-8 border border-2 border-neutral-800 lg:mx-20" data-aos="fade-up">
       <h1 className="text-3xl font-semibold  text-center ">Contact Us</h1>
-      <h1 className="text-xl font-light opacity-50 text-center px-20">Want to work with us or would like to help us reach our mission? You can get in touch through the form below.</h1>
+      <h1 className="text-xl font-light opacity-50 text-center px-5 lg:px-20">Want to work with us or would like to help us reach our mission? You can get in touch through the form below.</h1>
       <hr className='my-6 border border-neutral-800'></hr>
       <div className='px-8 flex flex-col'>
       <label htmlFor="fullname" className="text-white font-light mt-8 mb-2">Full name<span className="text-red-500 ">*</span></label>
-      <input type="text" name="fullname" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-300" />
-
+      <input type="text" name="fullname"             value={fullname}
+            onChange={(e) => {
+              setFullname(e.target.value);
+            }} className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-300" />
+      {errors?.fullname && (
+            <p className="text-red-500">Fullname cannot be empty.</p>
+          )}
       <label htmlFor="email" className="text-white font-light mt-4 mb-2 ">E-mail<span className="text-red-500">*</span></label>
-      <input type="email" name="email" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-300" />
-
+      <input type="email" value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }} name="email" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-300" />
+      {errors?.email && (
+            <p className="text-red-500">Email cannot be empty.</p>
+          )}
       <label htmlFor="subject" className="text-white font-light mt-4 mb-2 ">Subject<span className="text-red-500">*</span></label>
-      <input type="text" name="subject" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-300" />
-
+      <input type="text" value={subject}
+            onChange={(e) => {
+              setSubject(e.target.value);
+            }} name="subject" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-300" />
+      {errors?.subject && (
+            <p className="text-red-500">Subject cannot be empty.</p>
+          )}
       <label htmlFor="message" className="text-white font-light mt-4 mb-2 ">Message<span className="text-red-500">*</span></label>
-      <textarea name="message" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-300"></textarea>
+      <textarea name="message" value={message}
+            onChange={(e) => {
+              setMessage(e.target.value);
+            }} className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-300"></textarea>
+      {errors?.message && (
+            <p className="text-red-500">Message body cannot be empty.</p>
+          )}
       <div className="flex flex-row items-center justify-start">
-        <button className=" mt-10 p-0.5 rounded-full w-fit place-self-center bg-gradient-to-r from-yellow-500 to-pink-500 flex flex-row items-center">
-          <p className='bg-black rounded-full px-6 py-2  font-semibold text-[1rem] lg:text-[1.2rem]  text-center'>Send</p>
+        <button onClick={handleSubmit} className=" hover:scale-105 mt-10 p-0.5 rounded-full w-fit place-self-center bg-gradient-to-r from-yellow-500 to-pink-500 flex flex-row items-center">
+          <p className='bg-black rounded-full px-6 py-2  font-semibold text-[1rem] lg:text-[1.2rem]  text-center'>{buttonText}</p>
         </button>
       </div>
+      <div className="text-left">
+            {showSuccessMessage && (
+              <p className="text-green-500 font-semibold text-sm my-2">
+                Thankyou! Your Message has been delivered.
+              </p>
+            )}
+            {showFailureMessage && (
+              <p className="text-red-500">
+                Oops! Something went wrong, please try again.
+              </p>
+            )}
+          </div>
       </div>
     </form>
+    </section>
     <div>
     
     </div>
-        </div>
+        
         <div className='lg:invisible flex gap-5 font-mono text-center pt-20 bottom-0'>
-          <p className='opacity-50 hover:opacity-100'>Terms</p>
-          <p className='opacity-50 hover:opacity-100'>Privacy</p>
+          <Link href='/PrivacyPolicy.pdf' className="group opacity-50 hover:opacity-100">
+              <p className=''>privacy</p>
+            </Link>
         </div>
+        <h3 className='opacity-50 hover:opacity-100'>Copyright © 2024 <p className="font-semibold bg-gradient-to-r from-yellow-500 to-pink-500 inline-block text-transparent bg-clip-text">redevs</p>.</h3>
         <div className="invisible lg:visible bottom-0 translate-y-6 text-base font-mono left-0 flex h-min pt-3 w-full items-center px-5 border-neutral-800 bg-black border-t">
           <div className='grid grid-cols-2 w-full place-content-stretch'>
-          <div className='grid grid-rows-3 grid-cols-2'>
-          <div className="group">
-              <Link href='/' className=''>home</Link>
-            </div>
-            <Link href='#contact' className="group opacity-50 hover:opacity-100">
-              <p className=''>privacy</p>
+          <div className='grid'>
+          <Link href='/' className="group opacity-50 hover:opacity-100">
+              <p className=''>home</p>
             </Link>
             <Link href='#about' className="group opacity-50 hover:opacity-100">
               <p className=''>about</p>
             </Link>
             <Link href='#contact' className="group opacity-50 hover:opacity-100">
-              <p className=''>terms</p>
-            </Link>
-            <Link href='#contact' className="group opacity-50 hover:opacity-100">
               <p className=''>contact</p>
+            </Link>
+            <Link href='/PrivacyPolicy.pdf' className="group opacity-50 hover:opacity-100">
+              <p className=''>privacy</p>
             </Link>
           </div>
         </div>
         <div className='flex space-x-3 items-center'>
-          <div className='opacity-50 hover:opacity-100 hover:scale-101'>
-            <FaInstagram size={25}></FaInstagram>
-          </div>
-          <div className='opacity-50 hover:opacity-100 hover:scale-105'>
-            <RiTwitterXFill size={25}></RiTwitterXFill>
-          </div>
-          <div className='opacity-50 hover:opacity-100 hover:scale-105'>
-            <HiOutlineMail size={32}></HiOutlineMail>
-          </div>
+        <Link href='https://www.instagram.com/re.devs/' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
+            <FaInstagram size={30}></FaInstagram>
+          </Link>
+          <Link href='https://twitter.com/redevs_org' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
+            <RiTwitterXFill size={30}></RiTwitterXFill>
+          </Link>
+          <Link href='mailto:redevsorg@gmail.com' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
+            <HiOutlineMail size={37}></HiOutlineMail>
+          </Link>
         </div>
         </div>
     </main>
