@@ -11,6 +11,12 @@ import Link from 'next/link';
 import React, { useState } from "react";
 
 export default function Home() {
+  interface errorsType {
+    fullname: string,
+    email: string,
+    subject: string,
+    message: string
+  } 
   const [showModal, setShowModal] = React.useState(false);
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
@@ -19,7 +25,7 @@ export default function Home() {
   const [buttonText, setButtonText] = useState("Send");
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showFailureMessage, setShowFailureMessage] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({}) as [errorsType, any];
   const handleValidation = () => {
     let tempErrors = {};
     let isValid = true;
