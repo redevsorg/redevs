@@ -58,8 +58,13 @@ export default function Home() {
   };
   // @ts-ignore
   const handleSubmit = async (e) => {
-    console.log(e);
     e.preventDefault();
+    console.log(JSON.stringify({
+      email: email,
+      fullname: fullname,
+      subject: subject,
+      message: message,
+    }))
     let isValidForm = handleValidation();
     if (isValidForm) {
       setButtonText("Sending");
@@ -75,7 +80,6 @@ export default function Home() {
         },
         method: "POST",
       });
-
       const { error } = await res.json();
       if (error) {
         console.log(error);
@@ -336,13 +340,13 @@ export default function Home() {
       </div>
       <div className="text-left">
             {showSuccessMessage && (
-              <p className="text-green-500 font-semibold text-sm my-2">
-                Thankyou! Your Message has been delivered.
+              <p className="text-green-500 font-semibold text-sm my-2 text-center">
+                Thank you! Your Message has been delivered. We will get back to you shortly.
               </p>
             )}
             {showFailureMessage && (
-              <p className="text-red-500">
-                Oops! Something went wrong, please try again.
+              <p className="text-red-500 text-center">
+                Oops! Something went wrong, please try again or email us.
               </p>
             )}
           </div>
