@@ -29,13 +29,17 @@ export default function Home() {
   const handleValidation = () => {
     let tempErrors = {};
     let isValid = true;
-
+    const validateEmail = (email: string) => {
+      return email.match(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+    };
     if (fullname.length <= 0) {
       // @ts-ignore
       tempErrors["fullname"] = true;
       isValid = false;
     }
-    if (email.length <= 0) {
+    if (email.length <= 0 || !validateEmail(email)) {
       // @ts-ignore
       tempErrors["email"] = true;
       isValid = false;
@@ -307,7 +311,7 @@ export default function Home() {
               setFullname(e.target.value);
             }} className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-300" />
       {errors?.fullname && (
-            <p className="text-red-500">Fullname cannot be empty.</p>
+            <p className="text-red-500">Full name cannot be empty.</p>
           )}
       <label htmlFor="email" className="text-white font-light mt-4 mb-2 ">E-mail<span className="text-red-500">*</span></label>
       <input type="email" value={email}
@@ -315,7 +319,7 @@ export default function Home() {
               setEmail(e.target.value);
             }} name="email" className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-white font-light text-gray-300" />
       {errors?.email && (
-            <p className="text-red-500">Email cannot be empty.</p>
+            <p className="text-red-500">Invalid Email.</p>
           )}
       <label htmlFor="subject" className="text-white font-light mt-4 mb-2 ">Subject<span className="text-red-500">*</span></label>
       <input type="text" value={subject}
