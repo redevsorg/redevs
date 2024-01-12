@@ -359,7 +359,7 @@ export default function Home() {
         
         <div className='lg:invisible flex gap-5 font-mono text-center pt-20 bottom-0'>
           <Link href='/PrivacyPolicy.pdf' className="group opacity-50 hover:opacity-100">
-              <p className=''>privacy</p>
+              <p className=''>Privacy Policy</p>
             </Link>
         </div>
         <h3 className='opacity-50 hover:opacity-100'>Copyright © 2024 <p className="font-semibold bg-gradient-to-r from-yellow-500 to-pink-500 inline-block text-transparent bg-clip-text">redevs</p>.</h3>

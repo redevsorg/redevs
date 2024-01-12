@@ -1,11 +1,13 @@
 import sendgrid from "@sendgrid/mail";
 import { NextResponse } from "next/server";
 
+console.log('process.env.SENDGRID_API_KEY')
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
 export async function POST(req, res) {
   try {
     const data = await req.json();
+
     await sendgrid.send({
       to: "redevsorg@gmail.com", // Your email where you'll receive emails
       from: "redevsorg@gmail.com", // your website email address here
