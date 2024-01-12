@@ -144,7 +144,7 @@ export default function Home() {
           <Link href='https://twitter.com/redevs_org' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
             <RiTwitterXFill size={30}></RiTwitterXFill>
           </Link>
-          <Link href='mailto:redevsorg@gmail.com' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
+          <Link href='mailto:contact@redevs.org' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
             <HiOutlineMail size={37}></HiOutlineMail>
           </Link>
         </div>
@@ -184,7 +184,7 @@ export default function Home() {
           <Link href='https://twitter.com/redevs_org' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
             <RiTwitterXFill size={30}></RiTwitterXFill>
           </Link>
-          <Link href='mailto:redevsorg@gmail.com' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
+          <Link href='mailto:contact@redevs.org' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
             <HiOutlineMail size={37}></HiOutlineMail>
           </Link>
           </div>
@@ -387,7 +387,7 @@ export default function Home() {
           <Link href='https://twitter.com/redevs_org' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
             <RiTwitterXFill size={30}></RiTwitterXFill>
           </Link>
-          <Link href='mailto:redevsorg@gmail.com' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
+          <Link href='mailto:contact@redevs.org' className='opacity-50 hover:opacity-100 hover:scale-105 justify-end'>
             <HiOutlineMail size={37}></HiOutlineMail>
           </Link>
         </div>
