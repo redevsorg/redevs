@@ -9,13 +9,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: 'https://acme.com/#about',
+      url: 'https://redevs.org/#about',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://acme.com/#contact',
+      url: 'https://redevs.org/#contact',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.5,
