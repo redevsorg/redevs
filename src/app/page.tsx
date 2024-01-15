@@ -273,7 +273,8 @@ export default function Home() {
                   </div>
                   <hr className='my-6 border rounded-full border-neutral-800'></hr>
                   <p className="my-4 text-white text-center text-lg leading-relaxed">
-                    We are always looking for new developers. If you are an aspiring web developer and would like to support our mission, feel free to contact us via our social media or contact form.
+                    We are always looking for new developers. If you are an aspiring web developer and would like to support our mission, fill out 
+                    <Link href='https://redevs.org/join'> redevs.org/join</Link>.
                   </p>
                 </div>
               </div>
