@@ -9,6 +9,7 @@ import { IoMdGlobe } from "react-icons/io";
 import { TbDrone } from "react-icons/tb";
 import Link from 'next/link';
 import React, { useState } from "react";
+import { client } from '../../sanity/lib/client';
 
 export default function Home() {
   interface errorsType {
@@ -17,8 +18,10 @@ export default function Home() {
     subject: string,
     message: string
   } 
+  
   const [showModal, setShowModal] = React.useState(false);
   const [fullname, setFullname] = useState("");
+  const [members, setMembers] = useState([]);
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
@@ -107,8 +110,14 @@ export default function Home() {
       setMessage("");
       setSubject("");
     }
-    console.log(fullname, email, subject, message);
+    
   };
+  client.fetch(`*[_type == 'teamMember']{
+    name,
+    hierachy,
+    positon,
+    "photo": photo.asset->url
+  }`).then(res => {setMembers(res.sort((p1: any, p2: any) => (p1.hierachy < p2.hierachy) ? -1 : (p1.hierachy > p2.hierachy) ? 1 : 0))})
   return (
     <main className="flex min-h-screen bg-black flex-col items-center px-10 lg:px-0 justify-between py-10">
       <script>
@@ -245,31 +254,23 @@ export default function Home() {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 gap-10">
-                  <div className='grid place-items-center gap-4 lg:grid-cols-2'>
-                    <div className='grid place-items-center'>
-                    <Image
-              src="/sahith.JPG"
-              alt="Sahith Panchumarthy"
-              className="rounded-full self-center"
-              width={200}
-              height={200}
-              priority
-            />
-            <p className='text-center pt-1 text-[1.2rem]'>Sahith Panchumarthy</p>
-            <p className='text-center text-[1rem] opacity-50'>Co-Founder & President</p>
-                    </div>
-                    <div className='grid place-items-center'>
-                    <Image
-              src="/rohit.jpeg"
-              alt="Rohit Sandadi"
-              className="rounded-full self-center"
-              width={200}
-              height={200}
-              priority
-            />
-            <p className='text-center pt-1 text-[1.2rem]'>Rohit Sandadi</p>
-            <p className='text-center text-[1rem] opacity-50'>Co-Founder & President</p>
-                    </div>
+                  <div className='flex place-items-center gap-4 lg:gap-20 justify-center flex-wrap'>
+                  <>{members.map((member: any) => {
+                      return (<div className='grid place-items-center'>
+                      <Image
+                src={member.photo}
+                alt={member.name}
+                className="rounded-full self-center"
+                width={200}
+                height={200}
+                priority
+              />
+              <p className='text-center pt-1 text-[1.2rem]'>{member.name}</p>
+              <p className='text-center text-[1rem] opacity-50'>{member.positon}</p>
+                      </div>)
+                  })
+                  }</>
+                    
                   </div>
                   <hr className='my-6 border rounded-full border-neutral-800'></hr>
                   <p className="my-4 text-white text-center text-lg leading-relaxed">
