@@ -256,7 +256,7 @@ export default function Home() {
                 <div className="relative p-6 gap-10">
                   <div className='flex place-items-center gap-4 lg:gap-20 justify-center flex-wrap'>
                   <>{members.map((member: any) => {
-                      return (<div className='grid place-items-center'>
+                      return (<div key={member.name.split(" ")[0]} className='grid place-items-center'>
                       <Image
                 src={member.photo}
                 alt={member.name}
