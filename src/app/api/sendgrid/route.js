@@ -9,7 +9,7 @@ export async function POST(req, res) {
     const data = await req.json();
 
     await sendgrid.send({
-      to: "contact@redevs.org", // Your email where you'll receive emails
+      to: ["contact@redevs.org", "rohitsandadi@gmail.com", "sahithpanch@gmail.com", "redevsorg@gmail.com"], // Your email where you'll receive emails
       from: "contact@redevs.org", // your website email address here
       replyTo: data.email,
       subject: `[Redevs Contact] : ${data.subject}`,
