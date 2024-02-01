@@ -235,7 +235,7 @@ export default function Home() {
           <div
             data-aos='fade-up' className="justify-center top-0 items-center flex overflow-x-hidden overflow-y-scroll fixed inset-0 z-50 outline-none focus:outline-none"
           >
-            <div className="relative w-[80%] translate-y-[30%] lg:translate-y-[0%] py-[10%]">
+            <div className="relative w-[80%] translate-y-[40%] lg:translate-y-[10%] py-[10%]">
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-black outline outline-neutral-800 focus:outline-none">
                 {/*header*/}
