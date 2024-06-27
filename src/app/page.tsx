@@ -9,7 +9,8 @@ import { IoMdGlobe } from "react-icons/io";
 import { TbDrone } from "react-icons/tb";
 import Link from 'next/link';
 import React, { useState } from "react";
-import { client } from '../../sanity/lib/client';
+import { client } from "../../directus/client";
+import { readItems } from '@directus/sdk';
 
 export default function Home() {
   interface errorsType {
@@ -21,7 +22,7 @@ export default function Home() {
   
   const [showModal, setShowModal] = React.useState(false);
   const [fullname, setFullname] = useState("");
-  const [members, setMembers] = useState([]);
+  const [members, setMembers] = useState([] as Record<string, any>[]);
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
@@ -112,12 +113,11 @@ export default function Home() {
     }
     
   };
-  client.fetch(`*[_type == 'teamMember']{
-    name,
-    hierachy,
-    positon,
-    "photo": photo.asset->url
-  }`).then(res => {setMembers(res.sort((p1: any, p2: any) => (p1.hierachy < p2.hierachy) ? -1 : (p1.hierachy > p2.hierachy) ? 1 : 0))})
+  client.request(
+    readItems('redevs_team_members', {
+      fields: ['*'],
+    })
+  ).then(res => {setMembers(res.sort((p1: any, p2: any) => (p1.Hierarchy < p2.Hierarchy) ? -1 : (p1.Hierarchy > p2.Hierarchy) ? 1 : 0))}).catch(err => console.error(err));
   return (
     <main className="flex min-h-screen bg-black flex-col items-center px-10 lg:px-0 justify-between py-10">
       <script>
@@ -256,17 +256,17 @@ export default function Home() {
                 <div className="relative p-6 gap-10">
                   <div className='flex place-items-center gap-4 lg:gap-20 justify-center flex-wrap'>
                   <>{members.map((member: any) => {
-                      return (<div key={member.name.split(" ")[0]} className='grid place-items-center'>
+                      console.log(member);
+                      return (<div key={member.Name.split(" ")[0]} className='grid place-items-center'>
                       <Image
-                src={member.photo}
-                alt={member.name}
+                src={"https://manage.redevs.org/assets/"+member.Photo+".png"}
+                alt={member.Name}
                 className="rounded-full self-center"
                 width={200}
                 height={200}
-                priority
-              />
-              <p className='text-center pt-1 text-[1.2rem]'>{member.name}</p>
-              <p className='text-center text-[1rem] opacity-50'>{member.positon}</p>
+              ></Image>
+              <p className='text-center pt-1 text-[1.2rem]'>{member.Name}</p>
+              <p className='text-center text-[1rem] opacity-50'>{member.Role}</p>
                       </div>)
                   })
                   }</>
