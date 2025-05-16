@@ -287,7 +287,7 @@ export default function Home() {
       
       <div className='grid lg:grid-cols-3 lg:px-20 gap-6' data-aos='fade-up'>
       <div>
-        <h1 className='text-7xl font-bold'><p className="bg-gradient-to-r from-yellow-500 to-pink-500 inline-block text-transparent bg-clip-text">21+</p></h1>
+        <h1 className='text-7xl font-bold'><p className="bg-gradient-to-r from-yellow-500 to-pink-500 inline-block text-transparent bg-clip-text">8+</p></h1>
         <h1 className='text-3xl font-light'>Non-profit websites created</h1>
       </div>
       <div className='flex items-center gap-2 justify-self-center '>
